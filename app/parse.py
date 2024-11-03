@@ -4,6 +4,7 @@ import time
 from dataclasses import dataclass
 from urllib.parse import urljoin
 
+from selenium import webdriver
 from selenium.common import (
     NoSuchElementException,
     ElementClickInterceptedException,
@@ -92,7 +93,7 @@ def get_all_from_dynamic_page(url: str) -> list[Product]:
 
 
 def get_all_products() -> None:
-    driver = WebDriver()
+    driver = webdriver.Chrome()
     try:
         set_driver(driver)
         products = {
